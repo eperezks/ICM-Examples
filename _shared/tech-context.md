@@ -1,6 +1,6 @@
 # Tech context
 
-Factory reference: the engineering facts every design must respect. Filled by `01-planning/setup/questionnaire.md`. Until then, `02_design` should stop and say this file is unconfigured rather than assume a stack.
+Factory reference: the engineering facts every design must respect. Filled by `01-quarterly-planning/setup/questionnaire.md`. Until then, `02_due-diligence` stops and says this file is unconfigured rather than assume a stack.
 
 ## Stack
 _Not yet configured._

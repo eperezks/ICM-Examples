@@ -1,22 +1,24 @@
 # Jira conventions
 
-Factory reference. Values in `{braces}` and marked **default** are replaced by `01-planning/setup/questionnaire.md`.
+Factory reference. Jira tracks developer progress; Aha is the system of record for the feature — see [aha-conventions.md](aha-conventions.md).
 
 ## Mapping
-| Workspace | Jira |
-|---|---|
-| Feature folder `FEAT-NNN-slug` | Epic |
-| Story in a later breakdown | Story under the Epic |
-| Implementation step | Sub-task under a Story |
+| Aha | Jira | This workspace |
+|---|---|---|
+| Feature | Epic in `{PROJECT_KEY}` | `quarters/<YYYY-QN>/features/<AHA-REF>-<slug>/` |
+| — | Story under the Epic | a slice of the feature |
+| — | Sub-task | an implementation step |
 
-- Project key: `{PROJECT_KEY}`. Board: `{BOARD_NAME}`.
-- Epic summary: `FEAT-NNN {title}`, so the Jira and repo names match.
-- Create the Epic when `requirements.md` is approved. Record its key in the feature's `request.md` frontmatter (`jira:`).
-- The Epic description links to the feature folder. It does not copy the requirements — one home per fact.
+- **Not yet configured:** project `{PROJECT_NAME}`, key `{PROJECT_KEY}` (issues then read `{PROJECT_KEY}-123`), board `{BOARD_NAME}`. Set in `01-quarterly-planning/setup/questionnaire.md`.
+- Issue types are assumed to use Jira's standard names — Epic, Story, Sub-task. Confirm in setup if this instance renames them.
+- Feature folders are keyed by the **Aha** reference, not the Jira key, so nothing in this workspace is renamed when the Jira project is configured.
+- **Completion percentage flows Jira → Aha automatically.** As stories close, the Aha feature's percentage moves. Nobody updates it by hand, and this workspace never records a completion percentage — read it in Aha.
+- Epics are created *after* commitment, not during planning. Planning produces no Jira issues.
+- Record the Epic key in the feature record's `jira:` frontmatter once it exists.
 
-## Stories (used once a breakdown stage exists)
+## Stories
 - Summary: verb-first and specific.
 - Description: "As a {user}, I want {capability}, so that {outcome}."
-- Acceptance criteria: taken from `requirements.md`, one story covering one or more criteria.
-- Estimate: story points (**default**), set by developers at refinement.
-- Labels: `FEAT-NNN` on every issue, so a feature's issues can be queried together.
+- Acceptance criteria: taken from the Aha feature.
+- Estimate: story points, set by developers at refinement.
+- Label every issue with the Aha reference, so one feature's issues can be queried together — and so the integration has a clean join back to Aha.
