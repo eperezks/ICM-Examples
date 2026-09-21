@@ -1,22 +1,25 @@
 # Team conventions
 
-Factory reference: stable across every feature and every pipeline. Values marked **default** are starting points — `01-planning/setup/questionnaire.md` replaces them with the team's real ones.
+Factory reference: stable across every quarter. Configured through `01-quarterly-planning/setup/questionnaire.md`.
 
 ## Method
-- Scrum, two-week sprints (**default**).
-- Refinement happens before sprint planning. Planning artifacts (requirements, design) are finished and approved *before* a story is pulled into a sprint.
+- Scrum, two-week sprints.
+- Planning runs once a quarter and commits a set of features. Sprint-level refinement happens inside the quarter, against features that were already committed.
 
 ## Roles and approvals
 | Role | Owns | Approves |
 |---|---|---|
-| Product Owner | the "what" and "why" | `01_discovery/requirements.md` |
-| Tech Lead | the "how" | `02_design/design.md` |
-| Developers | estimates and delivery | — |
-| Scrum Master | cadence and blockers | — |
+| Product Owner: Ed | the ask, and product ranking | intake detail reviews, scoping, commitments |
+| Tech Lead: Murali | the approach, capacity, delivery plans | due diligence, capacity, scoping, commitments, delivery plans |
+| Product team | ranks the candidate features | `inputs/priorities.md` |
+| Engineers | estimates, and the commitment itself | they commit; nobody commits on their behalf |
+| Scrum Master | cadence, blockers, the vacation calendar | — |
 
 Approval = the approver sets `approved: true` in the output file's frontmatter after reading it. An agent never sets it.
 
 ## Working agreements
-- A feature is one folder: `01-planning/features/FEAT-NNN-slug/`. One feature maps to one Jira Epic (see [jira-conventions.md](jira-conventions.md)).
+- A quarter is one folder: `01-quarterly-planning/quarters/<YYYY-QN>/`.
+- A feature is one folder inside a quarter, keyed by its Aha reference.
+- Aha holds the feature detail. This workspace holds the planning judgment about it. Link, never copy.
 - Open questions are written down, with an owner. They are never guessed at.
-- Decisions that are hard to reverse get an ADR; everything else lives in the design doc.
+- Decisions that are hard to reverse get an ADR; everything else lives in the design note.
